@@ -6,10 +6,7 @@ import android.os.Looper
 import android.util.Log
 import android.view.Gravity
 import android.view.View
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.ProgressBar
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.GravityCompat
@@ -45,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 else -> {
-                    toolbarMainAct?.visibility = View.GONE
+                    toolbarMainAct?.visibility = View.VISIBLE
 
 
                 }
@@ -114,6 +111,18 @@ class MainActivity : AppCompatActivity() {
 
         val navigationView = navView
         val hView = navigationView?.getHeaderView(0)
+        val nav_user = hView?.findViewById<View>(R.id.headerLayoutId) as ConstraintLayout
+
+        val home = findViewById<View>(R.id.btnhome) as TextView?
+//        val rateUs = hView.findViewById<View>(R.id.btnRateus) as TextView?
+//        val share = hView.findViewById<View>(R.id.btnShare) as TextView
+//        val removeAdd = hView.findViewById<View>(R.id.btnRemoveAdd) as TextView
+//        val settings = hView.findViewById<View>(R.id.btnSetting) as TextView
+
+        home?.setOnClickListener {
+            Toast.makeText(this, "sasasa", Toast.LENGTH_SHORT).show()
+        }
+
 
 
     }

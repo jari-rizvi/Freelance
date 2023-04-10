@@ -1,5 +1,10 @@
 package com.teamx.ui.fragments.wallpaperlist
 
+import android.app.WallpaperManager
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -7,12 +12,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.teamx.freelance.R
 import com.teamx.freelance.databinding.FragmentTempBinding
 import com.teamx.freelance.databinding.FragmentWallpaperListBinding
+import java.io.IOException
+import java.io.InputStream
+import java.net.HttpURLConnection
+import java.net.URL
 
 class WallpaperListFragment : Fragment(), WallpaperAdapter.CallBack {
 
@@ -67,7 +78,49 @@ class WallpaperListFragment : Fragment(), WallpaperAdapter.CallBack {
 
     override fun onItemClickFavourite(i: Int) {
 
+        val wallpaper = (wallpaperlistAdapter as WallpaperAdapter).wallpaperArrayList[i]
+        val wallpaperManager = WallpaperManager.getInstance(activity)
+        try {
+            wallpaperManager.setResource(wallpaper.Img)
+            Toast.makeText(activity, "Wallpaper changed successfully", Toast.LENGTH_SHORT).show()
+        } catch (e: IOException) {
+            Toast.makeText(activity, "Error changing wallpaper", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.ECLAIR_MR1)
+    fun setWallpaperFromUrl(context: Context, imageUrl: String) {
 
     }
+
+
+    @RequiresApi(Build.VERSION_CODES.N)
+    fun setLockScreenWallpaperFromUrl(context: Context, imageUrl: String) {
+        Thread {
+            var bitmap: Bitmap? = null
+            var connection: HttpURLConnection? = null
+            try {
+                val url = URL(imageUrl)
+                connection = url.openConnection() as HttpURLConnection
+                connection.doInput = true
+                connection.connect()
+                val input: InputStream = connection.inputStream
+                bitmap = BitmapFactory.decodeStream(input)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            } finally {
+                connection?.disconnect()
+            }
+            if (bitmap != null) {
+                val wallpaperManager = WallpaperManager.getInstance(context)
+                try {
+                    wallpaperManager.setBitmap(bitmap, null, true, WallpaperManager.FLAG_LOCK)
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+            }
+        }.start()
+    }
+
 
 }

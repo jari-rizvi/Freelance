@@ -43,6 +43,7 @@
                 android:layout_marginEnd="16dp"
                 android:includeFontPadding="false"
                 android:text="4K Wallpapers"
+                style="@style/button_text_style"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@color/colorPrimary"
@@ -110,14 +111,13 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/bg_color"
         app:headerLayout="@layout/nav_header_main"
         android:fitsSystemWindows="true"
+        android:background="@android:color/transparent"
         app:elevation="@dimen/_5sdp"
         app:itemIconPadding="@dimen/_16sdp"
         app:itemIconSize="@dimen/_16sdp"
         app:itemIconTint="@color/white"
-        app:itemTextColor="@color/white"
-        app:menu="@menu/drawer_menu" />
+        app:itemTextColor="@color/white"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

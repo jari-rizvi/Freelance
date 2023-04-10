@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/home"
-        android:icon="@drawable/ic_refresh"
+        android:icon="@drawable/home"
         android:title="home"
         app:actionViewClass="android.widget.CheckedTextView" />
 
     <item
         android:id="@+id/settings"
-        android:icon="@drawable/ic_refresh"
+        android:icon="@drawable/ic_settings"
         android:title="settings" />
     <item
         android:id="@+id/share"

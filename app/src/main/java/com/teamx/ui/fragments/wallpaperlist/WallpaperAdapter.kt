@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.teamx.freelance.databinding.ItemWallpaperListBinding
 
 class WallpaperAdapter(
-    val orderArrayList: ArrayList<WallpaperListData>,var callback: CallBack
+    val wallpaperArrayList: ArrayList<WallpaperListData>,var callback: CallBack
 ) : RecyclerView.Adapter<FaqViewHolder>() {
 
     interface CallBack{
@@ -25,7 +25,7 @@ class WallpaperAdapter(
 
     override fun onBindViewHolder(holder: FaqViewHolder, position: Int) {
 
-        val imgList: WallpaperListData = orderArrayList[position]
+        val imgList: WallpaperListData = wallpaperArrayList[position]
 
         holder.bind.imageView3.setImageResource(imgList.Img)
 
@@ -34,15 +34,10 @@ class WallpaperAdapter(
 
         }
 
-
-
-
-
-
     }
 
     override fun getItemCount(): Int {
-        return orderArrayList.size
+        return wallpaperArrayList.size
     }
 }
 
