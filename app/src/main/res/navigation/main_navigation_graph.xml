@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation_graph"
+    app:startDestination="@id/tempFragment">
+
+
+    <fragment
+        android:id="@+id/tempFragment"
+        android:name="com.teamx.ui.fragments.temp.TempFragment"
+        android:label="fragment_temp"
+        tools:layout="@layout/fragment_temp" >
+    </fragment>
+    <fragment
+        android:id="@+id/wallpaperListFragment"
+        android:name="com.teamx.ui.fragments.wallpaperlist.WallpaperListFragment"
+        android:label="fragment_wallpaper_list"
+        tools:layout="@layout/fragment_wallpaper_list" />
+
+
+</navigation>
