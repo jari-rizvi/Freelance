@@ -1,0 +1,30 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.teamx.ui.fragments.previewWallpaper.ViewPagerFragment">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_300sdp"
+            android:background="@color/black"
+            android:backgroundTint="@color/black"
+            android:layout_marginHorizontal="@dimen/_1sdp"
+            android:elevation="@dimen/_5sdp"
+            app:layout_constraintVertical_bias="0.1"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="1dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

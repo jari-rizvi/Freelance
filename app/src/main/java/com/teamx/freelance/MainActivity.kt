@@ -3,7 +3,6 @@ package com.teamx.freelance
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.*
@@ -14,8 +13,12 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.google.android.material.navigation.NavigationView
+import com.teamx.freelance.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private val activityMainBinding: ActivityMainBinding? = null
+
 
     private var navController: NavController? = null
 
@@ -34,19 +37,21 @@ class MainActivity : AppCompatActivity() {
         addDrawer()
         setHeader()
 
+        var popmenu = findViewById<ImageView>(R.id.btnMenu)
 
-        navController?.addOnDestinationChangedListener { _, destination, _ ->
-            when (destination.id) {
-                R.id.tempFragment -> {
-                    toolbarMainAct?.visibility = View.GONE
-                }
+        popmenu.setOnClickListener {
+            val popupMenu = PopupMenu(this, popmenu)
 
-                else -> {
-                    toolbarMainAct?.visibility = View.VISIBLE
-
-
-                }
+            // Inflating popup menu from popup_menu.xml file
+            popupMenu.menuInflater.inflate(R.menu.popup_menu, popupMenu.menu)
+            popupMenu.setOnMenuItemClickListener { menuItem ->
+                // Toast message on menu item clicked
+                Toast.makeText(
+                    this, "You Clicked " + menuItem.title, Toast.LENGTH_SHORT
+                ).show()
+                true
             }
+            popupMenu.show()
         }
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
@@ -98,7 +103,6 @@ class MainActivity : AppCompatActivity() {
 //
     }
 
-
     private fun initialising() {
         progress_bar = findViewById(R.id.progress_bar)
         navView = findViewById(R.id.nav_view)
@@ -122,7 +126,6 @@ class MainActivity : AppCompatActivity() {
         home?.setOnClickListener {
             Toast.makeText(this, "sasasa", Toast.LENGTH_SHORT).show()
         }
-
 
 
     }

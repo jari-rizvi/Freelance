@@ -15,6 +15,7 @@
         android:background="@drawable/card_background"
         android:backgroundTint="@color/colorAccent"
         android:elevation="@dimen/_2sdp"
+        android:layout_gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,12 +25,12 @@
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_40sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintVertical_bias="0.15"
             app:srcCompat="@drawable/success_green_check_mark_icon" />
 
         <TextView
@@ -38,14 +39,45 @@
             android:layout_height="wrap_content"
             android:text="Applied Successfully"
             android:textColor="@color/black"
-            android:textSize="@dimen/_14ssp"
-            style="@style/button_text_style"
-            android:textStyle="bold"
-            app:layout_constraintVertical_bias="0.34"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintVertical_bias="0.2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/imageView7"
             app:layout_constraintStart_toStartOf="@+id/imageView7"
             app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+        <TextView
+            android:id="@+id/textView1"
+            style="@style/button_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go to Home"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/button_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exit"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textView1"
+            app:layout_constraintStart_toStartOf="@+id/textView1"
+            app:layout_constraintTop_toBottomOf="@+id/textView1"
+            app:layout_constraintVertical_bias="0.2" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

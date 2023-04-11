@@ -15,6 +15,7 @@
         android:background="@drawable/card_background"
         android:backgroundTint="@color/colorAccent"
         android:elevation="@dimen/_2sdp"
+        android:layout_gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
