@@ -19,7 +19,7 @@ public class AppLovinOpenManager
     private final Context context;
 
     //Ads ID here
-    private final String ADS_UNIT = "YOUR_GAID_HERE";
+    private final String ADS_UNIT = "f39f7b76863f8095";
 
     public AppLovinOpenManager(final Context context) {
         ProcessLifecycleOwner.get().getLifecycle().addObserver(this);

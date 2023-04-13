@@ -29,29 +29,26 @@ class DialogHelperClass {
             )
 
             val HomeBtn = dialog.findViewById<TextView>(R.id.btnHome)
-            HomeBtn.text = "btnHome"
+            HomeBtn.text = "Home Screen"
             HomeBtn.setOnClickListener {
                 dialogCallBack.onHomeScreenButton()
+                dialog.dismiss()
             }
 
              val btnLock = dialog.findViewById<TextView>(R.id.btnLock)
-            btnLock.text = "btnHome"
+            btnLock.text = "Lock Screen"
             btnLock.setOnClickListener {
                 dialogCallBack.onLockScreenButton()
+                dialog.dismiss()
             }
 
               val btnLockHome = dialog.findViewById<TextView>(R.id.btnLockHome)
-            btnLockHome.text = "btnHome"
+            btnLockHome.text = "Home and Lock Screen"
             btnLockHome.setOnClickListener {
                 dialogCallBack.onbothButton()
-            }
-
-
-            val cancelBtn = dialog.findViewById<TextView>(R.id.btncncl)
-
-            cancelBtn.setOnClickListener {
                 dialog.dismiss()
             }
+
 
             dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dialog.show()
