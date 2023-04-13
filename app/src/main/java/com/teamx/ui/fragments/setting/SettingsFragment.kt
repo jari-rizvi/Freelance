@@ -13,11 +13,13 @@ import com.teamx.freelance.MainActivity
 import com.teamx.freelance.R
 import com.teamx.freelance.databinding.FragmentSettingsBinding
 import com.teamx.freelance.databinding.FragmentTempBinding
+import com.teamx.ui.utils.BannerFacebook
 
 class SettingsFragment : Fragment() {
     var navController: NavController? = null
     lateinit var fragmentSettingsBinding: FragmentSettingsBinding
 
+    lateinit var banner : BannerFacebook
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +27,8 @@ class SettingsFragment : Fragment() {
     ): View? {
         fragmentSettingsBinding = FragmentSettingsBinding.inflate(inflater, container, false);
 
+        banner = BannerFacebook()
+        banner.loadAppLovInBanner(requireActivity(), fragmentSettingsBinding.bannerAdApplovin, "YOUR_GAID_HERE")
 
         return fragmentSettingsBinding.root;
     }

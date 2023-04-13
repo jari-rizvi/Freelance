@@ -9,11 +9,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.teamx.freelance.MainActivity
 import com.teamx.freelance.R
 import com.teamx.freelance.databinding.FragmentTempBinding
+import com.teamx.ui.utils.InterstitialFacebook
+import com.teamx.ui.utils.OnClosed
 
-class TempFragment : Fragment() {
+class TempFragment : Fragment(), OnClosed {
     var navController: NavController? = null
     lateinit var fragmentLoginBinding: FragmentTempBinding
 
@@ -24,16 +25,24 @@ class TempFragment : Fragment() {
     ): View? {
         fragmentLoginBinding = FragmentTempBinding.inflate(inflater, container, false);
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-            navController?.navigate(R.id.wallpaperListFragment, null)
 
-        }, 2000)
+        InterstitialFacebook.Companion.loadInterstitialAppLovin(requireActivity(), "YOUR_GAID_HERE")
+
+        Handler(Looper.getMainLooper()).postDelayed({
+
+            InterstitialFacebook.Companion.showInterstitialAppLovin(this, requireActivity())
+
+
+
+        }, 8000)
 
         return fragmentLoginBinding.root;
     }
 
-
+    override fun onAdClosed() {
+        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
+        navController?.navigate(R.id.wallpaperListFragment, null)
+    }
 
 
 }

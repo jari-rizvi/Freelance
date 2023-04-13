@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.teamx.freelance"
-        minSdk 30
+        minSdk 21
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -60,6 +60,8 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 
+    implementation 'com.applovin:applovin-sdk:11.5.4'
+    implementation 'com.applovin.mediation:facebook-adapter:6.8.0.5'
 
 //    implementation 'com.google.android.gms:play-services-ads:22.0.0'
 //    implementation 'com.google.ads.mediation:applovin:11.8.2.0'
