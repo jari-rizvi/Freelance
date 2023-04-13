@@ -25,6 +25,10 @@
         android:id="@+id/viewPagerFragment"
         android:name="com.teamx.ui.fragments.previewWallpaper.ViewPagerFragment"
         android:label="ViewPagerFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.teamx.ui.fragments.setting.SettingsFragment"
+        android:label="SettingsFragment" />
 
 
 </navigation>

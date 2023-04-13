@@ -47,20 +47,20 @@
             app:layout_constraintStart_toStartOf="@+id/imageView7"
             app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
-        <TextView
-            android:id="@+id/textView1"
-            style="@style/button_text_style"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Go to Home"
-            android:textColor="@color/black"
-            android:fontFamily="@font/roboto_regular"
-            android:textSize="@dimen/_12ssp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/textView"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.2" />
+<!--        <TextView-->
+<!--            android:id="@+id/textView1"-->
+<!--            style="@style/button_text_style"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Go to Home"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:fontFamily="@font/roboto_regular"-->
+<!--            android:textSize="@dimen/_12ssp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/textView"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/textView"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textView"-->
+<!--            app:layout_constraintVertical_bias="0.2" />-->
 
         <TextView
             android:id="@+id/textView2"
@@ -72,9 +72,9 @@
             android:fontFamily="@font/roboto_regular"
             android:textSize="@dimen/_12ssp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/textView1"
-            app:layout_constraintStart_toStartOf="@+id/textView1"
-            app:layout_constraintTop_toBottomOf="@+id/textView1"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
             app:layout_constraintVertical_bias="0.2" />
 
 

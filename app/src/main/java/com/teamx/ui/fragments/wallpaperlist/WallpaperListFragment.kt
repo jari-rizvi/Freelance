@@ -28,7 +28,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 class WallpaperListFragment : Fragment(), WallpaperAdapter.CallBack,
-    DialogHelperClass.Companion.setWallpaperDialog {
+    DialogHelperClass.Companion.successWallpaperDialog {
 
     lateinit var fragmentListBinding: FragmentWallpaperListBinding
     var navController: NavController? = null
@@ -83,21 +83,23 @@ class WallpaperListFragment : Fragment(), WallpaperAdapter.CallBack,
     override fun onItemClickFavourite(i: Int) {
 
 
-        val bundle = Bundle()
-        bundle.putInt(
-            "imageId", i
-        ).toString()
-        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-        navController?.navigate(R.id.viewPagerFragment, null)
+//        val bundle = Bundle()
+//        bundle.putInt(
+//            "imageId", i
+//        ).toString()
+//        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
+//        navController?.navigate(R.id.viewPagerFragment, null)
 
-//        val wallpaper = (wallpaperlistAdapter as WallpaperAdapter).wallpaperArrayList[i]
-//        val wallpaperManager = WallpaperManager.getInstance(activity)
-//        try {
-//            wallpaperManager.setResource(wallpaper.Img)
+        val wallpaper = (wallpaperlistAdapter as WallpaperAdapter).wallpaperArrayList[i]
+        val wallpaperManager = WallpaperManager.getInstance(activity)
+        try {
+            wallpaperManager.setResource(wallpaper.Img)
+            DialogHelperClass.successWallpaper(requireActivity(), this)
+
 //            Toast.makeText(activity, "Wallpaper changed successfully", Toast.LENGTH_SHORT).show()
-//        } catch (e: IOException) {
-//            Toast.makeText(activity, "Error changing wallpaper", Toast.LENGTH_SHORT).show()
-//        }
+        } catch (e: IOException) {
+            Toast.makeText(activity, "Error changing wallpaper", Toast.LENGTH_SHORT).show()
+        }
 
 
 //        DialogHelperClass.setWallpaper(
@@ -141,20 +143,12 @@ class WallpaperListFragment : Fragment(), WallpaperAdapter.CallBack,
 //        }.start()
 //    }
 
-    override fun onHomeScreenButton() {
 
-    }
+//    override fun onGoHomeButton() {
+//    }
 
-    override fun onLockScreenButton() {
-        val wallpaperManager = WallpaperManager.getInstance(context)
-        val bitmap = BitmapFactory.decodeResource(resources, R.drawable.home)
+    override fun onExitButton() {
 
-        // Change the lock screen wallpaper
-        wallpaperManager.setBitmap(bitmap, null, true, WallpaperManager.FLAG_LOCK)
-
-    }
-
-    override fun onbothButton() {
     }
 
 

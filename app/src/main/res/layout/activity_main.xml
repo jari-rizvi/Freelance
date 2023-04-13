@@ -88,6 +88,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbarMainAct"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:navGraph="@navigation/main_navigation_graph" />
 
 
@@ -109,7 +110,7 @@
         android:id="@+id/nav_view"
         style="@style/myNavigationView"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header_main"
         android:fitsSystemWindows="true"

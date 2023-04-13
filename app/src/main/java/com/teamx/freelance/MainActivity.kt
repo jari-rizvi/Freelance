@@ -3,6 +3,7 @@ package com.teamx.freelance
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.*
@@ -56,7 +57,32 @@ class MainActivity : AppCompatActivity() {
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
 
+
+
+
+        navController!!.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.tempFragment -> {
+                    Log.d("navbar", "onCreate: if ")
+                    toolbarMainAct?.visibility = View.GONE
+                }
+                R.id.settingsFragment -> {
+                    Log.d("navbar", "onCreate: if ")
+                    toolbarMainAct?.visibility = View.GONE
+                    mainDrawer?.close()
+                }
+                else -> {
+                    Log.d("navbar", "onCreate: else ")
+                    toolbarMainAct?.visibility = View.VISIBLE
+
+
+                }
+            }
+        }
+
+
     }
+
 
     fun addDrawer() {
         sideDrawerMenu!!.setOnClickListener {
@@ -79,8 +105,6 @@ class MainActivity : AppCompatActivity() {
                 navController = Navigation.findNavController(this, R.id.nav_host_fragment)
                 when (item.itemId) {
                     R.id.home -> {
-
-
                         navController!!.navigate(R.id.wallpaperListFragment, null, null)
 
 //                        navigateFragmentMethod(R.id.shippingAddressFragment, true)
@@ -105,6 +129,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initialising() {
         progress_bar = findViewById(R.id.progress_bar)
+        toolbarMainAct = findViewById(R.id.toolbarMainAct)
         navView = findViewById(R.id.nav_view)
         mainDrawer = findViewById(R.id.mainDrawer)
         sideDrawerMenu = findViewById(R.id.menu)
@@ -117,14 +142,15 @@ class MainActivity : AppCompatActivity() {
         val hView = navigationView?.getHeaderView(0)
         val nav_user = hView?.findViewById<View>(R.id.headerLayoutId) as ConstraintLayout
 
-        val home = findViewById<View>(R.id.btnhome) as TextView?
+        val home = hView?.findViewById<View>(R.id.btnhome) as TextView?
 //        val rateUs = hView.findViewById<View>(R.id.btnRateus) as TextView?
 //        val share = hView.findViewById<View>(R.id.btnShare) as TextView
 //        val removeAdd = hView.findViewById<View>(R.id.btnRemoveAdd) as TextView
-//        val settings = hView.findViewById<View>(R.id.btnSetting) as TextView
+        val settings = hView.findViewById<View>(R.id.btnSetting) as TextView
 
-        home?.setOnClickListener {
-            Toast.makeText(this, "sasasa", Toast.LENGTH_SHORT).show()
+        settings?.setOnClickListener {
+            navController!!.navigate(R.id.settingsFragment, null, null)
+
         }
 
 
